@@ -10,6 +10,8 @@ import java.util.List;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
@@ -20,6 +22,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import np.com.ngopal.animation.AnimationType;
 import np.com.ngopal.control.cell.AnimatedListCell;
+import oracle.jrockit.jfr.events.EventHandler;
  
 /**
  * @web http://java-buddy.blogspot.com/
@@ -52,6 +55,9 @@ public class Turnero extends Application {
         myList.add("Turno 1");
         myList.add("Turno 2");
         myList.add("Turno 3");
+        myList.add("Turno 4");
+        myList.add("Turno 5");
+        myList.add("Turno 6");
         /*myList.add(new MyObject("Wednesday", 90));
         myList.add(new MyObject("Thursday", 30));
         myList.add(new MyObject("Friday", 62));
@@ -78,6 +84,15 @@ public class Turnero extends Application {
         root.getChildren().add(listView);
         Button button = new Button();
         button.setText("Agregar Objeto");
+        button.setOnAction((ActionEvent e) -> {
+            //myList.add("VALE");
+            myObservableList.add("VALE");
+            listView.getSelectionModel().selectLast();
+            listView.scrollTo(listView.getItems().size()-1);
+            //listView.setCellFactory(AnimatedListCell.forListView(AnimationType.ROTATE_RIGHT, AnimationType.FADE_OUT));
+            //listView.setItems(myObservableList);
+            
+        });
         root.getChildren().add(button);
         Scene scene = new Scene(root, 300, 250);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
