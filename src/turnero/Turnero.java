@@ -124,7 +124,7 @@ public class Turnero extends Application {
         
         /*--------------------*/
  
-        primaryStage.setTitle("http://java-buddy.blogspot.com/");
+        primaryStage.setTitle("Turnero");
         prepareMyList();
         listView = new ListView<>();
         listView.setCellFactory(AnimatedListCell.forListView(AnimationType.ROTATE_RIGHT, AnimationType.FADE_OUT));
