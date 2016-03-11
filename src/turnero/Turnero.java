@@ -14,10 +14,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventType;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -84,7 +86,7 @@ public class Turnero extends Application {
 				// Update the Label on the JavaFx Application Thread
 				Platform.runLater(() -> 
                                     {//colar codigo aqui
-                                        myObservableList.add("VALE");
+                                        myObservableList.add("Nombre Paciente - Dr.Moiza - Consultorio 7");
                                         listView.getSelectionModel().selectLast();
                                         listView.scrollTo(listView.getItems().size()-1);
                                         Media media = new Media(resource.toString());
@@ -137,17 +139,22 @@ public class Turnero extends Application {
         StackPane root = new StackPane();
         
         root.getChildren().add(listView);
-        Button button = new Button();
-        button.setText("Agregar Objeto");
-        button.setOnAction((ActionEvent e) -> {
-            //myList.add("VALE");
-            
-            //listView.setCellFactory(AnimatedListCell.forListView(AnimationType.ROTATE_RIGHT, AnimationType.FADE_OUT));
-            //listView.setItems(myObservableList);
-            
-        });
-        root.getChildren().add(button);
+//        Button button = new Button();
+//        button.setText("Agregar Objeto");
+//        button.setOnAction((ActionEvent e) -> {
+//            //myList.add("VALE");
+//            
+//            //listView.setCellFactory(AnimatedListCell.forListView(AnimationType.ROTATE_RIGHT, AnimationType.FADE_OUT));
+//            //listView.setItems(myObservableList);
+//            
+//        });
+//        root.getChildren().add(button);
         Scene scene = new Scene(root, 300, 250);
+        scene.setCursor(Cursor.NONE);
+        primaryStage.setFullScreen(true); //full screen without borders (no program menu bars)
+        primaryStage.setFullScreenExitHint(""); //Don't show "Press ESC to exit full screen"
+        primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+        
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
